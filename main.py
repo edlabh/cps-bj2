@@ -12,15 +12,15 @@ log = CPLog(__name__)
 class TorrentBytes(TorrentProvider):
 
     urls = {
-        'test' : 'http://www.torrentbytes.net/',
-        'login' : 'http://www.torrentbytes.net/takelogin.php',
-        'detail' : 'http://www.torrentbytes.net/details.php?id=%s',
-        'search' : 'http://www.torrentbytes.net/browse.php?search=%s&cat=%d',
-        'download' : 'http://www.torrentbytes.net/download.php?id=%s&name=%s',
+        'test' : 'http://www.bj2.me/',
+        'login' : 'http://www.bj2.me/login.php',
+        'detail' : 'http://www.bj2.me/detalhes.php?id=%s',
+        'search' : 'http://www.bj2.me/pesquisa.php?search=%s&hd=1&tp=1',
+        'download' : 'http://www.bj2.net/download.php?id=%s',
     }
 
     cat_ids = [
-        ([5], ['720p', '1080p']),
+        ([1], ['720p', '1080p']),
         ([19], ['cam']),
         ([19], ['ts', 'tc']),
         ([19], ['r5', 'scr']),
@@ -52,10 +52,10 @@ class TorrentBytes(TorrentProvider):
 					
                     link = cells[1].find('a', attrs = {'class' : 'index'})
 					
-                    full_id = link['href'].replace('details.php?id=', '')
+                    full_id = link['href'].replace('detalhes.php?id=', '')
                     torrent_id = full_id[:6]
                     name = link.contents[0]
-                    url = self.urls['download'] % (torrent_id, name)
+                    url = self.urls['download'] % (torrent_id)
                     detail_url = self.urls['detail'] % torrent_id
                     size = cells[6].contents[0] + cells[6].contents[2]
                     seeders = cells[8].find('span').contents[0]
