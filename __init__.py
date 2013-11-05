@@ -1,17 +1,17 @@
-from .main import TorrentBytes
+from .main import BJ2
 
 def start():
-    return TorrentBytes()
+    return BJ2()
 
 config = [{
-    'name': 'torrentbytes',
+    'name': 'bj2me',
     'groups': [
         {
             'tab': 'searcher',
             'subtab': 'providers',
             'list': 'torrent_providers',
-            'name': 'TorrentBytes',
-            'description': 'See <a href="http://torrentbytes.net">TorrentBytes</a>',
+            'name': 'BJ2',
+            'description': 'See <a href="http://www.bj2.me">bj2.me 2.0</a>',
             'wizard': True,
             'options': [
                 {
